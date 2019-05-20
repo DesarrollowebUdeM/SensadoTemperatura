@@ -5,6 +5,7 @@
  */
 package com.temperatura.ws.rest.temp;
 
+import com.temperatura.controller.Controller;
 import javax.ws.rs.Produces;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,6 +15,11 @@ import javax.ws.rs.core.MediaType;
  * REST Web Service
  *
  * @author Henry Daniel
+ */
+
+/**
+ * 
+ * Esta clase se encarga de exponer un servicio para que el dispositivo movil pueda obtener la temperatura al consumir este servicio
  */
 @Path("temperature")
 public class TemperaturaResource {
@@ -26,7 +32,7 @@ public class TemperaturaResource {
     @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
         //TODO return proper representation object
-        temp = Math.random() * 6;
+        temp = Controller.getTemperatura();
         Valor = "" + temp;
         return Valor;
     }
