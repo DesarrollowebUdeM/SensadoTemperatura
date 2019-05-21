@@ -11,40 +11,16 @@ package com.arduino.sensor;
  */
 public class Arduino{
 
-    private static double temp;
-    private boolean estado;
+    private static InterfazAr intAr;
     public Arduino() {
-        temp = 25;
-        estado = true;
+  
+        intAr = new InterfazAr();
         
     }
-
-    public void iniciarsensado() {
-
-        while (estado==true) {
-            temp = sensar();
-            try {
-                Thread.sleep(10000);
-            } catch (InterruptedException ex) {
-                
-                estado = false;
-            }
-        }
-
-    }
-
-    public double sensar() {
-
-        temp = (Math.random() * 30) + 1;
-        System.out.println("La temperatura es:" + temp);
-        return temp;
-
-    }
     
-
     public static double getTemp() {
-        return temp;
+       
+        return intAr.getCelsius();
     }
-
 
 }

@@ -19,7 +19,6 @@
             if (request.getParameter("botonsensar") != null) {
 
                 Arduino ar = new Arduino();
-                ar.iniciarsensado();
 
             } else {%>
 
