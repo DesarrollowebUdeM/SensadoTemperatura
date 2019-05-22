@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Cold Or Hot</string>
+    <string name="texto">Para hacer uso de está app, debes registrar tu equipo en nuestro servidor. Solo debes presionar el botón de abajo y ya está.</string>
+    <string name="txtbt1">Registrarse</string>
+    <string name="txtbt2">Atras</string>
+    <string name="txtbt3">OBTENER</string>
+</resources>
