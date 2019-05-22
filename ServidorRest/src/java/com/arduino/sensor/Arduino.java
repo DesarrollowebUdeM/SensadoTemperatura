@@ -19,7 +19,8 @@ public class Arduino{
     }
     
     public static double getTemp() {
-       
+        
+        System.out.println(intAr.getCelsius());
         return intAr.getCelsius();
     }
 

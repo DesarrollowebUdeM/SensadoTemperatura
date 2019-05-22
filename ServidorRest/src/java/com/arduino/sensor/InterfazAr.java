@@ -5,6 +5,7 @@
  */
 package com.arduino.sensor;
 import com.panamahitek.*;
+import com.temperatura.controller.Controller;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jssc.SerialPortEvent;
@@ -30,10 +31,10 @@ public class InterfazAr {
                 if (arduinouno.isMessageAvailable()==true){//Si llega un valor
                     i++;
                     celsius=(500*Float.parseFloat(arduinouno.printMessage())/1023);//transformo un string a float
-                    System.out.println(celsius);
+                   
                     
-                    if (celsius>30) {//aqui se da la notificación de que la temperatura es critica
-                        
+                    if (celsius>34) {//aqui se da la notificación de que la temperatura es critica
+                        Controller.pushNotify();
                         System.out.println("Temperatura ALTA"+String.valueOf(celsius));//muestra la temperatura cuando no excede el limite
                     } //comentar si no quieren ver la temperatura en tiempo real
                 
@@ -49,7 +50,7 @@ public class InterfazAr {
     };
     public InterfazAr() {
         try {
-            arduinouno.arduinoRXTX("COM3", 9600, listener); //conexión con el arduino, EL COM debe coincidir con el slot USB usado por el arudino
+            arduinouno.arduinoRXTX("COM5", 9600, listener); //conexión con el arduino, EL COM debe coincidir con el slot USB usado por el arudino
         } catch (ArduinoException ex) {
             Logger.getLogger(InterfazAr.class.getName()).log(Level.SEVERE, null, ex);
         }
